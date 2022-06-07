@@ -15,8 +15,17 @@ router.post(`/notes`, (req, res) => {
 
 router.get(`/notes`, (req, res) => {
     const notes = fs.readFileSync(path.join(process.cwd(), `/db/db.json`));
-    console.log(JSON.parse(notes));
+    // console.log(JSON.parse(notes));
     res.json(JSON.parse(notes));
+})
+
+
+router.delete(`/notes/:id`, (req, res) => {
+    const notes = fs.readFileSync(path.join(process.cwd(), `/db/db.json`));
+    const newNotes = JSON.parse(notes).filter(note => note.id !== req.params.id);
+
+    fs.writeFileSync(path.join(process.cwd(), `/db/db.json`), JSON.stringify(newNotes));
+    res.json(newNotes);
 })
 
 module.exports = router;
