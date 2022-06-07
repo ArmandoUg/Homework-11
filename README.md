@@ -13,3 +13,4 @@ This is a readme file for the Note Taker app. This script will provide users an 
 
 ## Links to git hub repo
 -[Github link](https://github.com/ArmandoUg/Homework-11)
+-[Deployed link](https://express-f-note-taker.herokuapp.com)
